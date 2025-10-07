@@ -3,6 +3,7 @@ package org.example.View;
 import org.example.Model.Tecnico;
 import org.example.Service.TecnicoService;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class TecnicoView {
@@ -20,5 +21,23 @@ public class TecnicoView {
 
         Tecnico tecnico = new Tecnico(nome, especialidade);
         TecnicoService.cadastrarTecnico(tecnico);
+    }
+
+
+    // LISTAR TODOS OS TECNICOS
+    public void listarTecnicos() {
+        System.out.println("\n\n----- Lista de Técnicos -----\n");
+        List<Tecnico> tecnicos = TecnicoService.listarTodos();
+
+        if (tecnicos.isEmpty()) {
+            System.out.println("\nNenhum técnico cadastrado.");
+            return;
+        }
+
+        for (Tecnico tecnico : tecnicos) {
+            System.out.println("ID: " + tecnico.getId() +
+                    " | Nome: " + tecnico.getNome() +
+                    " | Especialidade: " + tecnico.getEspecialidade());
+        }
     }
 }

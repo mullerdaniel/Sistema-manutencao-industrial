@@ -10,6 +10,7 @@ public class MenuView {
     MaquinaView maquinaView = new MaquinaView();
     TecnicoView tecnicoView = new TecnicoView();
     PecaView pecaView = new PecaView();
+    OrdemManutencaoView ordemManutencaoView = new OrdemManutencaoView();
 
     // EXIBIR MENU QUE SERA PUXADO PARA MAIN
     public void exibirMenu() {
@@ -17,12 +18,12 @@ public class MenuView {
         System.out.println("\n\n|----------------------------------------|");
         System.out.println("|--- Sistema de Manutenção Industrial ---|");
         System.out.println("|----------------------------------------|\n");
-        System.out.println("1- Cadastrar Máquina: ");
-        System.out.println("2- Cadastrar Técnico: ");
-        System.out.println("3- Cadastrar Peça: ");
-        System.out.println("4- Criar Ordem de Manutenção: ");
-        System.out.println("5- Associar Peças à Ordem: ");
-        System.out.println("6- Executar Manutenção: ");
+        System.out.println("1- Cadastrar Máquina");
+        System.out.println("2- Cadastrar Técnico");
+        System.out.println("3- Cadastrar Peça");
+        System.out.println("4- Criar Ordem de Manutenção");
+        System.out.println("5- Associar Peças à Ordem");
+        System.out.println("6- Executar Manutenção");
         System.out.println("\n0- Sair");
         int opcao = input.nextInt();
 
@@ -43,6 +44,7 @@ public class MenuView {
             }
 
             case 4: {
+                ordemManutencaoView.criarOrdemManutencao();
                 break;
             }
 

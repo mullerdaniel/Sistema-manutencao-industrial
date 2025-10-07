@@ -5,7 +5,10 @@ import org.example.Model.Tecnico;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class TecnicoDAO {
 
@@ -21,5 +24,28 @@ public class TecnicoDAO {
             stmt.setString(2, tecnico.getEspecialidade());
             stmt.execute();
         }
+    }
+
+
+    // LISTAR TODOS OS TECNICOS
+    public List<Tecnico> listarTodos() throws SQLException {
+        String query = "SELECT id, nome, especialidade FROM Tecnico";
+        List<Tecnico> tecnicos = new ArrayList<>();
+
+        try (Connection conn = Conexao.conectar();
+             PreparedStatement stmt = conn.prepareStatement(query);
+             ResultSet rs = stmt.executeQuery()) {
+
+            while (rs.next()) {
+                Tecnico tecnico = new Tecnico(
+                        rs.getInt("id"),
+                        rs.getString("nome"),
+                        rs.getString("especialidade")
+                );
+                tecnicos.add(tecnico);
+            }
+        }
+
+        return tecnicos;
     }
 }

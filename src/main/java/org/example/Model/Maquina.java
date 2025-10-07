@@ -24,6 +24,10 @@ public class Maquina {
         this.status = status;
     }
 
+    public Maquina() {
+
+    }
+
 
     // GETs E SETs
     public int getId() {
