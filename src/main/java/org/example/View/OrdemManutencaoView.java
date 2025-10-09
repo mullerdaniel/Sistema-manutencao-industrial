@@ -21,7 +21,6 @@ public class OrdemManutencaoView {
     public void criarOrdemManutencao() {
         System.out.println("\n\n----- Criar Ordem Manutenção -----\n");
 
-        // 1. Listar máquinas operacionais
         List<Maquina> maquinas = maquinaService.listarMaquinasComStatusOperacionais();
         if (maquinas.isEmpty()) {
             System.out.println("\nNenhuma máquina operacional disponível.");
@@ -77,5 +76,23 @@ public class OrdemManutencaoView {
             System.out.println("\nFalha ao criar a ordem de manutenção.");
         }
     }
+
+
+    // EXIBIR AS ORDENS MANUTENÇÃO COM STATUS DEFINICO COMO PENDENTE
+    private OrdemManutencaoService ordemManutencaoService = new OrdemManutencaoService();
+
+    public void exibirOrdensManutencaoComStatusPendente() {
+        List<OrdemManutencao> ordemManutencaos = OrdemManutencaoService.listarOrdensManutencaoComStatusPendente();
+        if (ordemManutencaos.isEmpty()) {
+            System.out.println("\nNão há máquinas operacionais.");
+        } else {
+            System.out.println("\n\nMáquinas Operacionais:");
+            for (OrdemManutencao ordemManutencao : ordemManutencaos) {
+                System.out.println("ID: " + ordemManutencao.getId() + ", ID Maquina: " + ordemManutencao.getIdMaquina() + ", ID Tecnico " + ordemManutencao.getIdTecnico() + ", Data Solicitação: " + ordemManutencao.getDataSolicitacao() + ", Status: " + ordemManutencao.getStatus());
+            }
+        }
+    }
+
+
     }
 

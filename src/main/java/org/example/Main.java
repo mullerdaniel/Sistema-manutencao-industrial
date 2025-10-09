@@ -7,5 +7,6 @@ public class Main {
         MenuView menu = new MenuView();
 
         menu.exibirMenu();
+
     }
 }

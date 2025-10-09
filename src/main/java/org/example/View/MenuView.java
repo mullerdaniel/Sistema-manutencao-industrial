@@ -11,6 +11,9 @@ public class MenuView {
     TecnicoView tecnicoView = new TecnicoView();
     PecaView pecaView = new PecaView();
     OrdemManutencaoView ordemManutencaoView = new OrdemManutencaoView();
+    AssociarPecaOrdemView associarPecaOrdemView = new AssociarPecaOrdemView();
+    ExecutarManutencaoView executarManutencaoView = new ExecutarManutencaoView();
+
 
     // EXIBIR MENU QUE SERA PUXADO PARA MAIN
     public void exibirMenu() {
@@ -49,10 +52,12 @@ public class MenuView {
             }
 
             case 5: {
+                associarPecaOrdemView.criarOrdemPeca();
                 break;
             }
 
             case 6: {
+                executarManutencaoView.executarManutencao();
                 break;
             }
 
